@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head title="Home" desc="Dashboard for my Australian PR journey: milestones, visa timeline, points and costs." canonical="https://brickie28.web.app/" }}
+  </head>
+  <body>
+    <div class="container">
+      {{> _header headerTitle="PR Journey Dashboard" }}
+      <div class="main-content" role="main" id="main">
+        <div class="card key-metrics-panel">
+          <div class="metric-item skeleton-item">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text-short"></div>
+          </div>
+          <div class="metric-item skeleton-item">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text-short"></div>
+          </div>
+          <div class="metric-item skeleton-item">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text-short"></div>
+          </div>
+          <div class="metric-item skeleton-item">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text-short"></div>
+          </div>
+          <div class="metric-item" style="display: none;">
+            <div class="metric-header"><i class="fas fa-calendar-times" aria-hidden="true"></i> Days to Visa Expiry</div>
+            <div class="metric-value" id="daysRemaining">0</div>
+            <div class="metric-detail" id="visaStatus">Loading...</div>
+            <div class="progress-indicator"><div class="progress-fill" id="visaTimeProgress" style="background: var(--error-color);"></div></div>
+          </div>
+          <div class="metric-item" style="display: none;">
+            <div class="metric-header"><i class="fas fa-check-double" aria-hidden="true"></i> Points Status</div>
+            <div class="metric-value" id="currentPoints">0</div>
+            <div class="metric-detail" id="pointsTargetDisplay">Loading...</div>
+            <div class="progress-indicator"><div class="progress-fill" id="pointsProgress" style="background: var(--success-color);"></div></div>
+          </div>
+          <div class="metric-item" style="display: none;">
+            <div class="metric-header"><i class="fas fa-wallet" aria-hidden="true"></i> Investment</div>
+            <div class="metric-value" id="totalSpentDisplay">$0</div>
+            <div class="metric-detail" id="totalBudgetDisplay">Budget: $0</div>
+            <div class="progress-indicator"><div class="progress-fill" id="investmentProgress" style="background: var(--warning-color);"></div></div>
+          </div>
+          <div class="metric-item" style="display: none;">
+            <div class="metric-header"><i class="fas fa-flag-checkered" aria-hidden="true"></i> Next Milestone In</div>
+            <div class="metric-value" id="nextMilestoneCountdown">0</div>
+            <div class="metric-detail" id="nextMilestoneTitle">Loading...</div>
+            <div class="progress-indicator"><div class="progress-fill" id="milestoneProgress" style="background: var(--info-color);"></div></div>
+          </div>
+        </div>
+        <div class="dual-column-layout">
+          <div class="card">
+            <div class="card-header">
+              <span><i class="fas fa-calculator" aria-hidden="true"></i>PR Points Calculator</span>
+              <button id="resetDataBtn" class="reset-btn" title="Reset to Default"><i class="fas fa-undo"></i></button>
+            </div>
+            <div id="points-breakdown">
+              <div class="points-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+              <div class="points-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+              <div class="points-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+            </div>
+            <div class="points-total-row"><strong>TOTAL POINTS</strong><span id="currentTotalPoints">0</span></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span><i class="fas fa-dollar-sign" aria-hidden="true"></i>Investment Tracker</span>
+              <button id="resetDataBtn2" class="reset-btn" title="Reset to Default"><i class="fas fa-undo"></i></button>
+            </div>
+            <div id="cost-tracker">
+              <div class="cost-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+              <div class="cost-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+              <div class="cost-item skeleton-item"><div class="skeleton skeleton-text-full"></div></div>
+            </div>
+            <div class="cost-total"><strong>TOTAL SPENT</strong><span id="total_cost_spent">$0</span></div>
+          </div>
+        </div>
+        <div class="dual-column-layout">
+          <div class="card" id="alertsContainerCard">
+            <div class="card-header"><i class="fas fa-bullhorn" aria-hidden="true"></i>Status & Reminders</div>
+            <div id="alertsContainer"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><i class="fas fa-link" aria-hidden="true"></i>Key Resources</div>
+            <ul class="key-links-list">
+              <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing" target="_blank" rel="noopener noreferrer"><i class="fas fa-home"></i>The Department of Home Affairs</a></li>
+              <li><a href="https://www.tradesrecognitionaustralia.gov.au/programs-job-ready-program/guidelines" target="_blank" rel="noopener noreferrer"><i class="fas fa-tools"></i>TRA Job Ready Program</a></li>
+              <li><a href="https://migration.wa.gov.au/services/skilled-migration-western-australia" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marked-alt"></i>WA State Migration</a></li>
+              <li><a href="https://cricos.education.gov.au/Course/CourseDetails.aspx?CourseCode=108138G" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i>CRICOS Course Details</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    {{> _footer }}
+  </body>
+</html>

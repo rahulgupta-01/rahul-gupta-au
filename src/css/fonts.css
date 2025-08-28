@@ -1,0 +1,69 @@
+/* Local self-hosted fonts: Poppins & Montserrat */
+/* Place the .woff2 files in:
+   - /assets/fonts/poppins/Poppins-300.woff2
+   - /assets/fonts/poppins/Poppins-400.woff2
+   - /assets/fonts/poppins/Poppins-600.woff2
+   - /assets/fonts/montserrat/Montserrat-400.woff2
+   - /assets/fonts/montserrat/Montserrat-600.woff2
+   - /assets/fonts/montserrat/Montserrat-700.woff2
+*/
+
+/* Poppins 300 */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 400 */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 600 */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat 400 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat 600 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat 700 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Optional: define stacks to match your existing CSS usage */
+:root {
+  --font-sans-1: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  --font-sans-2: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}

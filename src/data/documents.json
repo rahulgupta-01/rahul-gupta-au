@@ -1,0 +1,51 @@
+[
+  {
+    "id": "passport",
+    "document": "Passport",
+    "status": "Obtained",
+    "notes": "Expires July 2028",
+    "icon": "fa-passport"
+  },
+  {
+    "id": "degree",
+    "document": "Bachelor Degree Certificate",
+    "status": "Obtained",
+    "notes": "Griffith University",
+    "icon": "fa-graduation-cap"
+  },
+  {
+    "id": "english_test",
+    "document": "English Language Test (PTE/IELTS)",
+    "status": "Booked",
+    "notes": "Aiming for Superior English (in PTE, I need L:69, R:70, W:85, S:88)",
+    "icon": "fa-language"
+  },
+  {
+    "id": "skills_assessment",
+    "document": "Skills Assessment (TRA)",
+    "status": "Required",
+    "notes": "To be done after JRP completion",
+    "icon": "fa-tools"
+  },
+  {
+    "id": "naati",
+    "document": "NAATI CCL Test",
+    "status": "Required",
+    "notes": "For 5 community language points",
+    "icon": "fa-comments"
+  },
+  {
+    "id": "police_checks",
+    "document": "Police Checks (All Countries)",
+    "status": "Required",
+    "notes": "Needed for final visa application",
+    "icon": "fa-user-shield"
+  },
+  {
+    "id": "health_exam",
+    "document": "Health Examination",
+    "status": "Required",
+    "notes": "Needed for final visa application",
+    "icon": "fa-notes-medical"
+  }
+]

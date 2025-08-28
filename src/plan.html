@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head title="My PR Plan" desc="Interactive timeline of study, work, visa and career milestones for PR." canonical="https://brickie28.web.app/plan" }}
+</head>
+<body>
+    <div class="container">
+        {{> _header headerTitle="My PR Plan" }}
+
+        <div class="main-content" role="main" id="main">
+            <div class="card">
+                <div class="card-header"><i class="fas fa-route"></i>Interactive Journey Timeline</div>
+                <div class="toggle-btn-group">
+                    <button class="toggle-btn active" data-phase="all">All Phases</button>
+                    <button class="toggle-btn" data-phase="study">🎓 Study</button>
+                    <button class="toggle-btn" data-phase="work">🔨 Work & JRP</button>
+                    <button class="toggle-btn" data-phase="visa">🛂 Visa</button>
+                    <button class="toggle-btn" data-phase="career">💻 IT Career</button>
+                </div>
+                <div class="timeline" id="timeline">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    {{> _footer }}
+</body>
+</html>

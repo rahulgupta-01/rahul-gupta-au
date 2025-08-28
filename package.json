@@ -1,0 +1,28 @@
+{
+  "name": "rahul-gupta-au",
+  "version": "1.0.0",
+  "description": "A personal portfolio and blog for Rahul Gupta.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node generate-sitemap.js && vite build",
+    "generate-sitemap": "node generate-sitemap.js"
+  },
+  "keywords": [
+    "firebase",
+    "vite",
+    "portfolio"
+  ],
+  "author": "Rahul Gupta",
+  "license": "ISC",
+  "devDependencies": {
+    "@fontsource/montserrat": "^5.2.6",
+    "@fontsource/poppins": "^5.2.6",
+    "@fortawesome/fontawesome-free": "^7.0.0",
+    "vite": "^7.0.3",
+    "vite-plugin-handlebars": "^2.0.0",
+    "vite-plugin-pwa": "^1.0.3",
+    "vite-plugin-static-copy": "^3.1.2"
+  }
+}
