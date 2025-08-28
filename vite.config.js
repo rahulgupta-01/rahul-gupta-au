@@ -2,32 +2,13 @@ import { defineConfig } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { readdirSync, readFileSync, writeFileSync } from 'fs';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { readdirSync } from 'fs';
 import { VitePWA } from 'vite-plugin-pwa';
-
-// --- Helper Plugin for Sitemap ---
-function updateSitemapDate() {
-  return {
-    name: 'update-sitemap-lastmod',
-    closeBundle() {
-      const sitemapPath = resolve(__dirname, 'dist', 'sitemap.xml');
-      const today = new Date().toISOString().split('T')[0];
-      try {
-        let sitemapContent = readFileSync(sitemapPath, 'utf-8');
-        sitemapContent = sitemapContent.replace(/<lastmod>.*<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-        writeFileSync(sitemapPath, sitemapContent);
-        console.log('sitemap.xml lastmod dates updated successfully.');
-      } catch (error) {
-        console.error('Error updating sitemap.xml:', error);
-      }
-    }
-  };
-}
-// ---------------------------------
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// Helper function to create the input object for Rollup
 const input = readdirSync(resolve(__dirname, 'src'))
   .filter(file => file.endsWith('.html'))
   .reduce((acc, file) => {
@@ -37,6 +18,7 @@ const input = readdirSync(resolve(__dirname, 'src'))
   }, {});
 
 export default defineConfig({
+  // Setting the root to 'src' means all paths are relative to it.
   root: 'src',
   plugins: [
     handlebars({
@@ -44,13 +26,22 @@ export default defineConfig({
     }),
     viteStaticCopy({
       targets: [
-        { src: 'data', dest: '.' },
-        { src: 'assets', dest: '.' },
-        { src: 'images', dest: '.' },
-        { src: 'sw.js', dest: '.' },
-        { src: 'robots.txt', dest: '.' },
-        { src: 'sitemap.xml', dest: '.' },
-        { src: 'css', dest: '.' },
+        {
+          src: 'data',
+          dest: '.'
+        },
+        {
+          src: 'images',
+          dest: '.'
+        },
+        {
+          src: 'robots.txt',
+          dest: '.'
+        },
+        {
+          src: 'sitemap.xml',
+          dest: '.'
+        }
       ]
     }),
     VitePWA({
@@ -58,20 +49,21 @@ export default defineConfig({
       includeAssets: ['**/*'],
       strategies: 'generateSW',
       workbox: {
+        // ✅ CHANGE MADE HERE: Added 'json' to the list of file types
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff2,json}'],
         navigateFallback: 'index.html',
         runtimeCaching: [
           {
-            urlPattern: ({ url }) => url.origin === 'https://cdnjs.cloudflare.com',
+            urlPattern: /^https:\/\/cdnjs\.cloudflare\.com\/.*/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'fontawesome-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 365 days
+              },
               cacheableResponse: {
                 statuses: [0, 200]
-              },
-              expiration: {
-                maxEntries: 1,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
               }
             }
           }
@@ -80,25 +72,29 @@ export default defineConfig({
       manifest: {
         name: 'Australian PR Journey',
         short_name: 'PR Journey',
-        description: 'A personal dashboard tracking my journey to Australian Permanent Residency.',
+        description: 'A personal dashboard for tracking Australian PR progress.',
         theme_color: '#00529B',
         background_color: '#ffffff',
         display: 'standalone',
         icons: [
           {
-            src: '/assets/android-chrome-192x192.png',
+            src: 'assets/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/assets/android-chrome-512x512.png',
+            src: 'assets/android-chrome-512x512.png',
             sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'assets/apple-touch-icon.png',
+            sizes: '180x180',
             type: 'image/png'
           }
         ]
       }
-    }),
-    updateSitemapDate()
+    })
   ],
   build: {
     outDir: '../dist',
