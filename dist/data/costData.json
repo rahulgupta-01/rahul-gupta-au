@@ -1,0 +1,10 @@
+[
+  { "id": "cert", "label": "Certificate III Course", "amount": 17230, "paid": true },
+  { "id": "tools", "label": "Tools, PPE, White Card", "amount": 550, "paid": true },
+  { "id": "tra", "label": "TRA Assessments (All)", "amount": 3540, "paid": false },
+  { "id": "visa_app", "label": "Visa Application Fee", "amount": 4910, "paid": false },
+  { "id": "medicals", "label": "Medicals & Police Checks", "amount": 600, "paid": false },
+  { "id": "english_test", "label": "English Test", "amount": 475, "paid": false },
+  { "id": "naati_test", "label": "NAATI CCL Test", "amount": 814, "paid": false },
+  { "id": "agent", "label": "Migration Agent Costs", "amount": 6000, "paid": false }
+]
