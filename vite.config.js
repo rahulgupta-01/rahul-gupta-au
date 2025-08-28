@@ -4,6 +4,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { VitePWA } from 'vite-plugin-pwa';
 
 // --- Helper Plugin for Sitemap ---
 function updateSitemapDate() {
@@ -51,6 +52,51 @@ export default defineConfig({
         { src: 'sitemap.xml', dest: '.' },
         { src: 'css', dest: '.' },
       ]
+    }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['**/*'],
+      strategies: 'generateSW',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff2,json}'],
+        navigateFallback: 'index.html',
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.origin === 'https://cdnjs.cloudflare.com',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'fontawesome-cache',
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              expiration: {
+                maxEntries: 1,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              }
+            }
+          }
+        ]
+      },
+      manifest: {
+        name: 'Australian PR Journey',
+        short_name: 'PR Journey',
+        description: 'A personal dashboard tracking my journey to Australian Permanent Residency.',
+        theme_color: '#00529B',
+        background_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: '/assets/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/assets/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
     }),
     updateSitemapDate()
   ],
