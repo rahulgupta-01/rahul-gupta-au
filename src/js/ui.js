@@ -98,7 +98,7 @@ function updateClock() {
 }
 
 function initializeContactPage() {
-  document.querySelectorAll('.copy-btn').forEach(button => {
+  document.querySelectorAll('.copy-button').forEach(button => {
     if (button.dataset.bound === '1') return; // Prevent double-binding
     button.dataset.bound = '1';
 
@@ -193,7 +193,7 @@ export function initializeUI() {
     updateClock();
     setInterval(updateClock, 1000);
   }
-  if (document.querySelector('.copy-btn')) {
+  if (document.querySelector('.copy-button')) {
     initializeContactPage();
   }
 }
