@@ -49,7 +49,6 @@ export default defineConfig({
       includeAssets: ['**/*'],
       strategies: 'generateSW',
       workbox: {
-        // ✅ CHANGE MADE HERE: Added 'json' to the list of file types
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff2,json}'],
         navigateFallback: 'index.html',
         runtimeCaching: [

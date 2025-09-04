@@ -1,16 +1,18 @@
+// src/js/main.js
 import { loadJourneyData } from './data.js';
 import { initializeDashboard } from './dashboard.js';
 import { initializeTimeline } from './timeline.js';
-import { initializeUI, showUpdateToast } from './ui.js';
+import { initializeUI } from './ui.js';
 import { initializeRouter } from './router.js';
 import { initializeDocumentsPage } from './documents.js';
+import { defaultConfig } from './config.default.js';
 
 function showConfigError() {
   const errorBanner = document.createElement('div');
   errorBanner.className = 'config-error-banner';
   errorBanner.textContent = '⚠️ Could not load live configuration. Displaying default data. Some information may be outdated.';
   document.body.prepend(errorBanner);
-  
+
   const style = document.createElement('style');
   style.textContent = `
     .config-error-banner {
@@ -41,55 +43,22 @@ async function fetchConfig() {
   } catch (e) {
     console.error('Config load failed, falling back to defaults', e);
     showConfigError();
-    return {
-      userDOB: '2001-05-18',
-      journeyStartDate: '2025-02-15',
-      initialVisaExpiryDate: '2027-02-15',
-      finalVisaExpiryDate: '2028-02-15',
-      pointsTarget: 95,
-      dataVersion: 1
-    };
+    return defaultConfig;
   }
 }
 
 async function initializeApp() {
   try {
-    if ('serviceWorker' in navigator) {
-      if (import.meta && import.meta.env && import.meta.env.PROD) {
-        // Register the service worker
-        const registration = await navigator.serviceWorker.register('/sw.js');
-
-        // This is the robust way to detect updates.
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-          if (newWorker) {
-            newWorker.addEventListener('statechange', () => {
-              // The new worker has successfully installed and is waiting to activate.
-              // We check for `navigator.serviceWorker.controller` to ensure this isn't the first install.
-              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                showUpdateToast();
-              }
-            });
-          }
-        });
-      } else {
-        // Unregister any active service workers in development mode.
-        try {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          for (const r of regs) { await r.unregister().catch(()=>{}); }
-        } catch {}
-      }
-    }
-
     initializeUI();
 
     const config = await fetchConfig();
-    const { milestones, costData } = await loadJourneyData(config);
+    const { milestones, costData, pointsData } = await loadJourneyData(config);
 
     const runPageScripts = (path) => {
       initializeUI();
-      if (document.querySelector('.key-metrics-panel')) {
-        initializeDashboard(milestones, costData, config);
+      // This is the corrected line:
+      if (document.querySelector('.key-metrics')) {
+        initializeDashboard(milestones, costData, pointsData, config);
       }
       if (document.getElementById('timeline')) {
         initializeTimeline(milestones);

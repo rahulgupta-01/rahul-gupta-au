@@ -28,45 +28,45 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32-CliojstM.png">
     <link rel="manifest" href="/assets/site-DNiwh0Cv.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script type="module" crossorigin src="/assets/main-CQh1oin5.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/main-Bg7CtPwM.css">
-    </head>
+      <script type="module" crossorigin src="/assets/main-Dh9FP2gm.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/main-Ba5jLnSp.css">
+    <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
 <body>
     <div class="container">
-        <header class="header">
-            <div class="header-top-bar">
-                <a href="/" class="header-home-link" aria-label="Go to Homepage">
+        <header class="site-header">
+            <div class="site-header__top-bar">
+                <a href="/" class="site-header__home-link" aria-label="Go to Homepage">
                     <i class="fas fa-home" aria-hidden="true"></i>
                 </a>
         
-                <h1 id="page-title">Visa Background</h1>
+                <h1 id="page-title" class="site-header__title">Visa Background</h1>
         
-                <button class="hamburger-menu" id="hamburger-menu" aria-label="Open Menu">
+                <button class="site-header__menu-toggle" id="hamburger-menu" aria-label="Open Menu">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
-            <div class="date-time-container" aria-live="polite">
+            <div class="site-header__date-time" aria-live="polite">
                 <span id="currentDate"></span>
                 <span id="currentTime"></span>
             </div>
         
-            <nav class="navigation-menu" id="navigation-menu" aria-label="Primary" aria-hidden="true">
-                <button class="close-menu" id="close-menu" aria-label="Close Menu">
+            <nav class="nav-menu" id="navigation-menu" aria-label="Primary" aria-hidden="true">
+                <button class="nav-menu__close" id="close-menu" aria-label="Close Menu">
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
-                <ul>
-                    <li><a href="/"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
-                    <li><a href="/plan"><i class="fas fa-route"></i> My PR Plan</a></li>
-                    <li><a href="/visa"><i class="fas fa-passport"></i> Visa Background</a></li>
-                    <li><a href="/documents"><i class="fas fa-folder-open"></i> Documents Hub</a></li>
-                    <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li class="theme-switch-container">
-                        <div class="theme-switch-wrapper">
+                <ul class="nav-menu__list">
+                    <li class="nav-menu__item"><a href="/"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="nav-menu__item"><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                    <li class="nav-menu__item"><a href="/plan"><i class="fas fa-route"></i> My PR Plan</a></li>
+                    <li class="nav-menu__item"><a href="/visa"><i class="fas fa-passport"></i> Visa Background</a></li>
+                    <li class="nav-menu__item"><a href="/documents"><i class="fas fa-folder-open"></i> Documents Hub</a></li>
+                    <li class="nav-menu__item"><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li class="nav-menu__item">
+                        <div class="theme-switch">
                             <i class="fas fa-sun" aria-hidden="true"></i>
-                            <label class="theme-switch" for="dark-mode-toggle">
-                                <input type="checkbox" id="dark-mode-toggle" />
-                                <span class="slider"></span>
+                            <label class="theme-switch__label" for="dark-mode-toggle">
+                                <input type="checkbox" id="dark-mode-toggle" class="theme-switch__input" />
+                                <span class="theme-switch__slider"></span>
                             </label>
                             <i class="fas fa-moon" aria-hidden="true"></i>
                         </div>
@@ -75,11 +75,12 @@
             </nav>
         </header>
         <div id="overlay" class="overlay" aria-hidden="true"></div>
+
         <div class="main-content" role="main" id="main">
             <div class="card">
-                <div class="card-header"><i class="fas fa-history"></i>Visa History & Status</div>
-                <div class="visa-history-list">
-                    <div class="visa-item">
+                <div class="card__header"><i class="fas fa-history"></i>Visa History & Status</div>
+                <div class="visa-history">
+                    <div class="visa-history__item">
                         <h3><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485/post-higher-education-work" target="_blank" rel="noopener noreferrer">Temporary Graduate Visa (Subclass 485)</a></h3>
                         <ul>
                             <li><strong>Status:</strong> Active</li>
@@ -90,7 +91,7 @@
                             <li><strong>Notes:</strong> Eligible for a <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485/second-post-higher-education-work" target="_blank" rel="noopener noreferrer">1-year regional extension</a> due to study in a designated regional area (Gold Coast).</li>
                         </ul>
                     </div>
-                    <div class="visa-item">
+                    <div class="visa-history__item">
                         <h3><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" target="_blank" rel="noopener noreferrer">Student Visa (Subclass 500)</a></h3>
                         <ul>
                             <li><strong>Status:</strong> Expired</li>

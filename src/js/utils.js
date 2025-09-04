@@ -16,3 +16,42 @@ export function escapeHTML(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+// Function to animate a number counting up
+export function animateCountUp(element, endValue, duration = 800) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    element.textContent = Math.floor(progress * endValue).toLocaleString();
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+// Function to animate a currency value counting up
+export function animateCurrencyUp(element, endValue, formatter, duration = 800) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const currentValue = Math.floor(progress * endValue);
+        element.textContent = formatter(currentValue);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Helper function to trigger progress bar animations reliably
+export function animateProgressBar(element, widthPercentage) {
+  setTimeout(() => {
+    if (element) {
+      element.style.width = widthPercentage;
+      element.style.transform = 'scaleX(1)';
+    }
+  }, 100);
+}

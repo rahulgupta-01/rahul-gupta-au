@@ -1,0 +1,117 @@
+/* ==========================================================================
+   8. Responsive Media Queries
+   ========================================================================== */
+@media (min-width: 992px) {
+  .dual-column-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid--social {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .profile {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .profile__picture {
+    width: 180px;
+    height: 180px;
+  }
+  .profile__header {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .site-header__title {
+    font-size: 1.5rem;
+  }
+  .card {
+    padding: 1.25rem;
+  }
+  .site-header__date-time {
+    flex-direction: column;
+    gap: 5px;
+    white-space: normal;
+    text-align: center;
+  }
+  .card__header {
+    justify-content: flex-start; /* Aligns header items to the start */
+  }
+
+  .contact-card__info span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact-card--with-action {
+    flex-wrap: nowrap;
+  }
+  .document-table thead {
+    display: none;
+  }
+  .document-table tbody {
+    display: block;
+    width: 100%;
+  }
+  .document-table tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    padding: 0.75rem;
+  }
+  .document-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px dotted var(--border-color);
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    min-height: 38px;
+  }
+  .document-table td:first-child {
+    display: block;
+  }
+  .document-table tr td:last-child {
+    border-bottom: none;
+  }
+  .document-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0.75rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-align: left;
+  }
+  .tooltip .tooltiptext {
+    max-width: calc(100vw - 40px);
+  }
+}
+
+@media (max-width: 576px) {
+  .key-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (hover: hover) {
+  .site-header__menu-toggle:hover,
+  .nav-menu__close:hover,
+  .site-header__home-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

@@ -1,6 +1,6 @@
 // New: Simple validation function
 function validateData(data) {
-  if (!data || !Array.isArray(data.milestones) || !Array.isArray(data.costData)) {
+  if (!data || !Array.isArray(data.milestones) || !Array.isArray(data.costData) || !Array.isArray(data.pointsData)) {
     throw new Error('Invalid data structure received from server.');
   }
   return data;
@@ -23,22 +23,24 @@ export async function loadJourneyData(config) {
   }
 
   try {
-    const [milestonesResponse, costDataResponse] = await Promise.all([
+    const [milestonesResponse, costDataResponse, pointsDataResponse] = await Promise.all([
       fetch('data/milestones.json', { credentials: 'same-origin' }),
-      fetch('data/costData.json', { credentials: 'same-origin' })
+      fetch('data/costData.json', { credentials: 'same-origin' }),
+      fetch('data/pointsData.json', { credentials: 'same-origin' })
     ]);
 
-    if (!milestonesResponse.ok || !costDataResponse.ok) {
+    if (!milestonesResponse.ok || !costDataResponse.ok || !pointsDataResponse.ok) {
       throw new Error('Network response was not ok while fetching journey data.');
     }
 
     const milestonesData = await milestonesResponse.json();
     const costData = await costDataResponse.json();
+    const pointsData = await pointsDataResponse.json();
 
     // Sort milestones by date after fetching
     const milestones = milestonesData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    const payload = { milestones, costData };
+    const payload = { milestones, costData, pointsData };
     
     // Validate fetched data before caching and returning
     validateData(payload); 

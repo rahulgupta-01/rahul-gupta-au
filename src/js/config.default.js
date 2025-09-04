@@ -1,0 +1,9 @@
+// src/js/config.default.js
+export const defaultConfig = {
+  userDOB: '2001-05-18',
+  journeyStartDate: '2025-02-15',
+  initialVisaExpiryDate: '2027-02-15',
+  finalVisaExpiryDate: '2028-02-15',
+  pointsTarget: 95,
+  dataVersion: 1
+};

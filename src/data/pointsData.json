@@ -1,0 +1,64 @@
+[
+  {
+    "id": "age",
+    "label": "Age",
+    "points": 30,
+    "currentPoints": 25,
+    "achievedDate": "BIRTHDAY_25",
+    "tooltip": "Points based on age at time of invitation."
+  },
+  {
+    "id": "english",
+    "label": "Superior English",
+    "points": 20,
+    "currentPoints": 10,
+    "tooltip": "Superior (e.g., IELTS 8 or equivalent in each PTE component) vs Proficient."
+  },
+  {
+    "id": "work_exp",
+    "label": "1 Year Aus Work Exp",
+    "points": 5,
+    "currentPoints": 0,
+    "achievedDate": "JRP_COMPLETE",
+    "tooltip": "Achieved after completing the 12-month Job Ready Program."
+  },
+  {
+    "id": "degree",
+    "label": "Bachelor Degree",
+    "points": 15,
+    "currentPoints": 15,
+    "initial": true,
+    "tooltip": "Points for your Bachelor of IT degree from Griffith University."
+  },
+  {
+    "id": "study_req",
+    "label": "Australian Study Req",
+    "points": 5,
+    "currentPoints": 5,
+    "initial": true,
+    "tooltip": "Two academic years of study in Australia."
+  },
+  {
+    "id": "naati",
+    "label": "Community Language",
+    "points": 5,
+    "currentPoints": 0,
+    "tooltip": "NAATI CCL (Hindi)."
+  },
+  {
+    "id": "regional",
+    "label": "Regional Study",
+    "points": 5,
+    "currentPoints": 5,
+    "initial": true,
+    "tooltip": "Studied in a designated regional area."
+  },
+  {
+    "id": "single",
+    "label": "Single Applicant",
+    "points": 10,
+    "currentPoints": 10,
+    "initial": true,
+    "tooltip": "Applying as a single applicant."
+  }
+]

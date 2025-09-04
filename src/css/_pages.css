@@ -1,0 +1,378 @@
+/* ==========================================================================
+   6. Page-Specific Styles
+   ========================================================================== */
+
+/* --- Profile Page --- */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.profile__picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--card-bg);
+  box-shadow: var(--shadow-medium);
+}
+
+.profile__info .profile__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile__name {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.profile__job-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-medium);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.profile__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.profile__summary-item {
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.profile__summary-item i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: 5px;
+  width: 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.profile__summary-content h4 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  margin-bottom: 2px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.profile__summary-content p,
+.profile__summary-content ul {
+  font-size: 0.95rem;
+  color: var(--text-medium);
+}
+
+/* --- Visa Page --- */
+.visa-history__item {
+  background: var(--bg-light);
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.25rem;
+}
+
+.visa-history__item:last-child {
+  margin-bottom: 0;
+}
+
+.visa-history__item h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+}
+
+.visa-history__item ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.visa-history__item li {
+  margin-bottom: 5px;
+  color: var(--text-medium);
+}
+
+/* --- Documents Page --- */
+.document-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.document-table caption {
+  position: absolute;
+  left: -9999px;
+}
+
+.document-table thead {
+  background-color: var(--bg-light);
+}
+
+.document-table th,
+.document-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.document-table th {
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.document-table td {
+  color: var(--text-medium);
+  vertical-align: middle;
+}
+
+.document-table td:first-child {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.document-table td:first-child i {
+  color: var(--primary-color);
+  width: 20px;
+  text-align: center;
+  margin-right: 0.6rem;
+}
+
+.document-table td:last-child {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.document-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  display: inline-block;
+}
+
+.status-badge--green {
+  background-color: var(--success-color);
+}
+.status-badge--orange {
+  background-color: var(--warning-color);
+}
+.status-badge--red {
+  background-color: var(--error-color);
+}
+
+/* --- Timeline Page --- */
+.timeline {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.timeline__progress-fill {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+  border-radius: 2px;
+  z-index: 1;
+  height: 0%;
+  transition: height 1s ease-out;
+}
+
+.timeline__milestone {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 65px;
+}
+
+.timeline__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.timeline__icon {
+  position: absolute;
+  left: 18px;
+  top: 5px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  border: 3px solid var(--bg-light);
+  box-shadow: 0 0 0 3px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline__header:hover .timeline__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.timeline__icon--completed {
+  background: var(--success-color);
+  box-shadow-color: var(--success-color);
+}
+
+.timeline__icon--future {
+  background: var(--info-color);
+  box-shadow-color: var(--info-color);
+}
+
+.timeline__content {
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-light);
+  border-left: 4px solid var(--primary-color);
+  transition: all var(--transition-speed) ease;
+}
+
+.timeline__header:hover .timeline__content {
+  border-left-color: var(--secondary-color);
+}
+
+.timeline__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  color: var(--text-dark);
+}
+
+.timeline__date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.timeline__details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  padding-left: 65px;
+}
+
+.timeline__details--visible {
+  max-height: 500px;
+  margin-top: 1rem;
+}
+
+/* --- Contact Page --- */
+.contact-section-header {
+  font-family: var(--font-secondary);
+  color: var(--text-medium);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-card--with-action {
+  justify-content: space-between;
+}
+
+.contact-card:hover {
+  box-shadow: var(--shadow-light);
+  border-color: var(--primary-color);
+  text-decoration: none;
+}
+
+.contact-card__icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  width: 50px;
+  text-align: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.contact-card--linkedin:hover .contact-card__icon {
+  color: #0077B5;
+}
+.contact-card--instagram:hover .contact-card__icon {
+  color: #E4405F;
+}
+.contact-card--facebook:hover .contact-card__icon {
+  color: #1877F2;
+}
+.contact-card--github:hover .contact-card__icon {
+  color: #333;
+}
+
+.contact-card__info span {
+  font-weight: 500;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.contact-card__info small {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.contact-grid--social .contact-card--with-action .contact-card__link {
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    flex-grow: 1;
+}

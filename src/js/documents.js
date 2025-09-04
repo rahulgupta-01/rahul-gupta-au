@@ -5,19 +5,19 @@ function renderDocuments(documents) {
   if (!tableBody) return;
 
   tableBody.innerHTML = documents.map(doc => {
-    let statusClass = '';
+    let statusModifier = '';
     if (doc.status === 'Obtained') {
-      statusClass = 'status-green';
+      statusModifier = 'status-badge--green';
     } else if (doc.status === 'Booked') {
-      statusClass = 'status-orange';
+      statusModifier = 'status-badge--orange';
     } else if (doc.status === 'Required') {
-      statusClass = 'status-red';
+      statusModifier = 'status-badge--red';
     }
 
     return `
       <tr>
         <td data-label="Document"><i class="fas ${escapeHTML(doc.icon)}"></i> ${escapeHTML(doc.document)}</td>
-        <td data-label="Status"><span class="status-badge ${statusClass}">${escapeHTML(doc.status)}</span></td>
+        <td data-label="Status"><span class="status-badge ${statusModifier}">${escapeHTML(doc.status)}</span></td>
         <td data-label="Notes / Expiry">${escapeHTML(doc.notes)}</td>
       </tr>
     `;
